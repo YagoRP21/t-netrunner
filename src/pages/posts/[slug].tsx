@@ -26,6 +26,7 @@ export default function Post({ post }: PostProps) {
 
 
     useEffect(() => {
+        //@ts-ignore
         if (!session || !session?.activeSubscription) {
             router.push(`/posts/preview/${post.slug}`)
         }
@@ -54,6 +55,7 @@ export default function Post({ post }: PostProps) {
 
 export const getServerSideProps: GetServerSideProps = async ({ req, params }) => {
     const session = await getSession({ req })
+    // @ts-ignore
     const { slug } = params;
 
 

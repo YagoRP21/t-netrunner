@@ -18,7 +18,7 @@ export function SubscribeButton({ priceId }: SubscribeButtonProps) {
             signIn('github')
             return;
         }
-
+        // @ts-ignore
         if (session.activeSubscription) {
             router.push('/posts');
             return;
@@ -34,6 +34,7 @@ export function SubscribeButton({ priceId }: SubscribeButtonProps) {
             await stripe?.redirectToCheckout({ sessionId })
 
         } catch(err) {
+            // @ts-ignore
             alert(err.message);
         }
     }
