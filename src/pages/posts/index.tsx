@@ -1,7 +1,7 @@
 
 import { GetStaticProps } from 'next'
 import Head from 'next/head'
-import { client } from '../../services/prismic'
+import { PrismicClient } from '../../services/prismic'
 import * as Prismic from '@prismicio/client'
 import styles from './styles.module.scss'
 import * as prismicH from '@prismicio/helpers'
@@ -43,7 +43,7 @@ export default function Posts({ posts }: PostsProps) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-    const prismic = client
+    const prismic = PrismicClient()
 
     // @ts-ignore
     const response = await prismic.get([

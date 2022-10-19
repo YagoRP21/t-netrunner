@@ -1,6 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from "next"
 import { getSession, useSession } from "next-auth/react"
-import { client } from "../../../services/prismic"
+import { PrismicClient } from "../../../services/prismic"
 import * as prismicH from '@prismicio/helpers'
 import Head from "next/head"
 
@@ -71,7 +71,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     // @ts-ignore
     const { slug } = params;
     
-    const prismic = client
+    const prismic = PrismicClient()
 
     const response = await prismic.getByUID('posts', String(slug), {})
 

@@ -1,6 +1,6 @@
 import { GetServerSideProps } from "next"
 import { getSession, useSession } from "next-auth/react"
-import { client } from "../../services/prismic"
+import { PrismicClient } from "../../services/prismic"
 import { useRouter } from "next/router"
 import { useEffect } from "react"
 import * as prismicH from '@prismicio/helpers'
@@ -58,8 +58,8 @@ export const getServerSideProps: GetServerSideProps = async ({ req, params }) =>
     // @ts-ignore
     const { slug } = params;
 
-
-    const prismic = client
+    // @ts-ignore
+    const prismic = PrismicClient(req)
 
     const response = await prismic.getByUID('posts', String(slug), {})
 
