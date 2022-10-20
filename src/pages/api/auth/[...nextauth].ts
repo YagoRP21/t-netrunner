@@ -93,6 +93,7 @@ export const authOptions = {
     jwt:{
       signingKey: process.env.JWT_SECRET
     },
+    
 }
 
 // @ts-ignore
