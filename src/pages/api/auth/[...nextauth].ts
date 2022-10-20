@@ -90,6 +90,9 @@ export const authOptions = {
 
     },
     secret: process.env.NEXTAUTH_SECRET,
+    jwt:{
+      signingKey: process.env.JWT_SECRET
+    },
 }
 
 // @ts-ignore
